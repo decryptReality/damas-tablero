@@ -18,70 +18,97 @@ class Tablero
 
     static void imprimirFila(int celda1, int celda2) // [1,8]
     {
+        String colorRESET = "\033[0m";
+        String colorPAR = "\033[46m";
+        String colorNoPAR = "\033[47m";
+        String colorFichaA = "\033[41m";
+
         // fila A
         int i = 3;
         while(i <= 26)
         {
             if (i / 3 == celda1 | i / 3 == celda2)
             {
-                System.out.print(CYAN_BACKGROUND + " " + RED_BACKGROUND + " " + CYAN_BACKGROUND + " " + RESET);
-            }
-            else
-            {
-                if(i % 2 != 0) // impar, superior izquierda: blanco
+                String colorTEMPORAL = "";
+                if(i % 2 != 0) // SI es NoPar, hacer
                 {
-                    System.out.print(WHITE_BACKGROUND + "   " + RESET);
+                    colorTEMPORAL = colorNoPAR;
                 }
                 else
                 {
-                    System.out.print(CYAN_BACKGROUND + "   " + RESET);
+                    colorTEMPORAL = colorPAR;
+                }
+                System.out.print(colorTEMPORAL + " " + colorFichaA + " " + colorTEMPORAL + " " + colorRESET);
+            }
+            else
+            {
+                if(i % 2 != 0) // SI no es par, o sea, impar, entonces es blanco superior izquierda: blanco
+                {
+                    System.out.print(colorNoPAR + "   " + colorRESET);
+                }
+                else
+                {
+                    System.out.print(colorPAR + "   " + colorRESET);
                 }
             }
             i = i + 3;
         }
         System.out.println();
+
         // fila B
         i = 3;
         while(i <= 26)
         {
             if (i / 3 == celda1 | i / 3 == celda2)
             {
-                System.out.print(RED_BACKGROUND + "   " + RESET);
+                System.out.print(colorFichaA + "   " + colorRESET);
             }
             else
             {
-                if(i % 2 != 0) // impar, superior izquierda: blanco
+                if(i % 2 != 0)
                 {
-                    System.out.print(WHITE_BACKGROUND + "   " + RESET);
+                    System.out.print(colorNoPAR + "   " + colorRESET);
                 }
                 else
                 {
-                    System.out.print(CYAN_BACKGROUND + "   " + RESET);
+                    System.out.print(colorPAR + "   " + colorRESET);
                 }
             }
             i = i + 3;
         }
         System.out.println();
+
+        // fila C
         i = 3;
         while(i <= 26)
         {
             if (i / 3 == celda1 | i / 3 == celda2)
             {
-                System.out.print(CYAN_BACKGROUND + " " + RED_BACKGROUND + " " + CYAN_BACKGROUND + " " + RESET);
-            }
-            else
-            {
-                if(i % 2 != 0) // impar, superior izquierda: blanco
+                String colorTEMPORAL = "";
+                if(i % 2 != 0) // SI es NoPar, hacer
                 {
-                    System.out.print(WHITE_BACKGROUND + "   " + RESET);
+                    colorTEMPORAL = colorNoPAR;
                 }
                 else
                 {
-                    System.out.print(CYAN_BACKGROUND + "   " + RESET);
+                    colorTEMPORAL = colorPAR;
+                }
+                System.out.print(colorTEMPORAL + " " + colorFichaA + " " + colorTEMPORAL + " " + colorRESET);
+            }
+            else
+            {
+                if(i % 2 != 0) // SI no es par, o sea, impar, entonces es blanco superior izquierda: blanco
+                {
+                    System.out.print(colorNoPAR + "   " + colorRESET);
+                }
+                else
+                {
+                    System.out.print(colorPAR + "   " + colorRESET);
                 }
             }
             i = i + 3;
         }
         System.out.println();
+
     }
 }
