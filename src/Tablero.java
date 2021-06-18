@@ -1,10 +1,38 @@
+import java.util.Scanner;
 
 class Tablero
 {
+    static Scanner scanner1 = new Scanner(System.in);
     public static void main(String[] args) 
     {
-        //Tablero.imprimirFila(1, 8);
-        Tablero.imprimirTablero(5, 3, 7, 1);
+        int numero = 0;
+        boolean salir = false;
+        while(!salir)
+        {
+            System.out.println("mueva dos fichas del tablero, ingresando valores en este orden:");
+            System.out.println("fila1, columna1, fila2, columna2");
+            System.out.println("NOTA: ficha1(fila1, columna1), ficha2(fila2, columna2)");
+            int fila1 = scanner1.nextInt();
+            int columna1 = scanner1.nextInt();
+            int fila2 = scanner1.nextInt();
+            int columna2 = scanner1.nextInt();
+            Tablero.imprimirTablero(fila1, columna1, fila2, columna2);
+            System.out.println("\ningrese 1 si desea crear tablero sino ingrese 0");
+            numero = scanner1.nextInt();
+            salir = numero == 0;
+        }
+    }
+
+    static void salir()
+    {
+        int numero = 0;
+        boolean salir = false;
+        while(!salir)
+        {
+            System.out.println("ingrese 1 si desea crear tablero sino ingrese 0");
+            numero = scanner1.nextInt();
+            salir = numero == 0;
+        }
     }
 
     public static final String RESET = "\033[0m";  // Text Reset
