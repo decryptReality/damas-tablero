@@ -1,10 +1,9 @@
-import jdk.nashorn.api.tree.WhileLoopTree;
 
 class Tablero
 {
     public static void main(String[] args) 
     {
-        Tablero.imprimirFila(5, 3);
+        Tablero.imprimirFila(1, 8);
     }
 
     public static final String RESET = "\033[0m";  // Text Reset
@@ -19,22 +18,45 @@ class Tablero
 
     static void imprimirFila(int celda1, int celda2) // [1,8]
     {
+        // fila A
         int i = 3;
         while(i <= 26)
         {
             if (i / 3 == celda1 | i / 3 == celda2)
             {
-                System.out.print(BLACK_BACKGROUND + " " + RED_BACKGROUND + " " + BLUE_BACKGROUND + " " + RESET);
+                System.out.print(CYAN_BACKGROUND + " " + RED_BACKGROUND + " " + CYAN_BACKGROUND + " " + RESET);
             }
             else
             {
-                if(i % 2 != 0) // impar, inicio
+                if(i % 2 != 0) // impar, superior izquierda: blanco
                 {
                     System.out.print(WHITE_BACKGROUND + "   " + RESET);
                 }
                 else
                 {
-                    System.out.print(BLACK_BACKGROUND + "   " + RESET);
+                    System.out.print(CYAN_BACKGROUND + "   " + RESET);
+                }
+            }
+            i = i + 3;
+        }
+        System.out.println();
+        // fila B
+        i = 3;
+        while(i <= 26)
+        {
+            if (i / 3 == celda1 | i / 3 == celda2)
+            {
+                System.out.print(RED_BACKGROUND + "   " + RESET);
+            }
+            else
+            {
+                if(i % 2 != 0) // impar, superior izquierda: blanco
+                {
+                    System.out.print(WHITE_BACKGROUND + "   " + RESET);
+                }
+                else
+                {
+                    System.out.print(CYAN_BACKGROUND + "   " + RESET);
                 }
             }
             i = i + 3;
@@ -44,26 +66,18 @@ class Tablero
         while(i <= 26)
         {
             if (i / 3 == celda1 | i / 3 == celda2)
-            System.out.print(RED_BACKGROUND + "   " + RESET);
-            i = i + 1;
-        }
-        System.out.println();
-        i = 3;
-        while(i <= 26)
-        {
-            if (i / 3 == celda1 | i / 3 == celda2)
             {
-                System.out.print(BLUE_BACKGROUND + " " + RED_BACKGROUND + " " + BLUE_BACKGROUND + " " + RESET);
+                System.out.print(CYAN_BACKGROUND + " " + RED_BACKGROUND + " " + CYAN_BACKGROUND + " " + RESET);
             }
             else
             {
-                if(i % 2 == 0)
+                if(i % 2 != 0) // impar, superior izquierda: blanco
                 {
                     System.out.print(WHITE_BACKGROUND + "   " + RESET);
                 }
                 else
                 {
-                    System.out.print(BLUE_BACKGROUND + "   " + RESET);
+                    System.out.print(CYAN_BACKGROUND + "   " + RESET);
                 }
             }
             i = i + 3;
